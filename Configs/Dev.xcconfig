@@ -1,0 +1,7 @@
+#include "Base.xcconfig"
+
+// Dev environment — used for development and testing builds.
+
+PRODUCT_BUNDLE_IDENTIFIER = com.jmalcolmo.weightroom.dev
+PRODUCT_NAME = WeightRoom Dev
+DISPLAY_NAME = WeightRoom Dev

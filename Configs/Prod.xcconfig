@@ -1,0 +1,7 @@
+#include "Base.xcconfig"
+
+// Prod environment — used for App Store / release builds.
+
+PRODUCT_BUNDLE_IDENTIFIER = com.jmalcolmo.weightroom
+PRODUCT_NAME = WeightRoom
+DISPLAY_NAME = WeightRoom

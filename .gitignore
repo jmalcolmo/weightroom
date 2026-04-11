@@ -1,0 +1,41 @@
+# Xcode
+#
+# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+
+## User settings
+xcuserdata/
+
+## compatibility with Xcode 8 and earlier (ignoring not-yet-proposed workarounds)
+*.xcscmblueprint
+*.xccheckout
+
+## compatibility with Xcode 3 and earlier (ignoring not-yet-proposed workarounds)
+build/
+DerivedData/
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+
+## Pods (if/when CocoaPods is added)
+Pods/
+*.xcworkspace
+!default.xcworkspace
+Podfile.lock
+
+## SPM
+.build/
+.swiftpm/
+
+## macOS
+.DS_Store
+*.swp
+
+## Environment / secrets
+*.env
+secrets.xcconfig
