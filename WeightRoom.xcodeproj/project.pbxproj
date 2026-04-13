@@ -21,7 +21,7 @@
 		3E83AC459E8FECAFE15AD165 /* Dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		4BB21D9FF33AE9DCDAE30BD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9F69C30C4251AE5A30F02C78 /* Prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
-		BDA34E40F635EC690C55EBDF /* WeightRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDA34E40F635EC690C55EBDF /* WeightRoom Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeightRoom Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21AA633E79FE5C92595AE50 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D577EFF3835D67F2EF13EC4D /* WeightRoomApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeightRoomApp.swift; sourceTree = "<group>"; };
 		D7D4E5D44668D7D19000C228 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +56,6 @@
 				B0519476FA1020192F8F4A86 /* Preview Content */,
 				14B0273095E737EB617BEB96 /* Info.plist */,
 			);
-			name = WeightRoom;
 			path = WeightRoom;
 			sourceTree = "<group>";
 		};
@@ -70,7 +69,7 @@
 		6B2922DC5536B2EC525A7CD2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BDA34E40F635EC690C55EBDF /* WeightRoom.app */,
+				BDA34E40F635EC690C55EBDF /* WeightRoom Dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,7 +87,6 @@
 			children = (
 				11B2A5073B750A7BB664F6A6 /* Preview Assets.xcassets */,
 			);
-			name = "Preview Content";
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
@@ -110,7 +108,6 @@
 				3E83AC459E8FECAFE15AD165 /* Dev.xcconfig */,
 				9F69C30C4251AE5A30F02C78 /* Prod.xcconfig */,
 			);
-			name = Configs;
 			path = Configs;
 			sourceTree = "<group>";
 		};
@@ -131,7 +128,7 @@
 			);
 			name = WeightRoom;
 			productName = WeightRoom;
-			productReference = BDA34E40F635EC690C55EBDF /* WeightRoom.app */;
+			productReference = BDA34E40F635EC690C55EBDF /* WeightRoom Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -142,6 +139,12 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					11022E1967FBD720AFDC0A17 = {
+						DevelopmentTeam = 53N3FP668A;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = 5E3A7EDBB589F8E51F2F7312 /* Build configuration list for PBXProject "WeightRoom" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -152,8 +155,6 @@
 				Base,
 			);
 			mainGroup = EF5986B971254037AC05935C;
-			minimizedProjectReferenceProxies = 0;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 4C3E7166BF451264D9AE6CA6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -198,11 +199,11 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 53N3FP668A;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = WeightRoom/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WeightRoom;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmalcolmo.weightroom;
@@ -326,8 +327,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Prod;
@@ -341,7 +341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 53N3FP668A;
 				ENABLE_PREVIEWS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEV=1",
@@ -349,7 +349,7 @@
 				);
 				INFOPLIST_FILE = WeightRoom/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "WeightRoom Dev";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
