@@ -41,7 +41,7 @@ struct PersistenceController {
         if lastSeedVersion != Self.seedVersion {
             // Wipe existing exercises before reseeding
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: Exercise.fetchRequest())
-            try? context.execute(deleteRequest)
+            _ = try? context.execute(deleteRequest)
         } else {
             // Already on the current version — nothing to do
             let request = Exercise.fetchRequest()
