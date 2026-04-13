@@ -12,21 +12,11 @@ struct SwipeableNumber: View {
     @State private var baseValue = 0
 
     var body: some View {
-        VStack(spacing: 2) {
-            Image(systemName: "chevron.up")
-                .font(.caption2)
-                .foregroundColor(.secondary)
-
-            Text("\(value)")
-                .font(.title2)
-                .fontWeight(.bold)
-                .monospacedDigit()
-                .frame(minWidth: 52)
-
-            Image(systemName: "chevron.down")
-                .font(.caption2)
-                .foregroundColor(.secondary)
-        }
+        Text("\(value)")
+            .font(.title2)
+            .fontWeight(.bold)
+            .monospacedDigit()
+            .frame(minWidth: 52)
         .contentShape(Rectangle())
         .gesture(
             DragGesture(minimumDistance: 5)

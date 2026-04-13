@@ -12,21 +12,15 @@ struct ExerciseRowView: View {
         VStack(alignment: .leading, spacing: 0) {
 
             // ── Exercise name row ──────────────────────────────────────────
-            Button(action: onTap) {
-                HStack {
-                    Text(exercise.name)
-                        .foregroundColor(.primary)
-                        .font(.body)
-                    Spacer()
-                    Image(systemName: "chevron.right")
-                        .rotationEffect(.degrees(isExpanded ? 90 : 0))
-                        .foregroundColor(.secondary)
-                        .font(.caption)
-                        .animation(.easeInOut(duration: 0.2), value: isExpanded)
-                }
-                .padding(.vertical, 14)
+            HStack {
+                Text(exercise.name)
+                    .foregroundColor(.primary)
+                    .font(.body)
+                Spacer()
             }
-            .buttonStyle(.plain)
+            .padding(.vertical, 14)
+            .contentShape(Rectangle())
+            .onTapGesture(perform: onTap)
 
             // ── Inline input panel ─────────────────────────────────────────
             if isExpanded {
@@ -60,6 +54,7 @@ struct ExerciseRowView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
+                    .buttonStyle(.plain)
 
                     Spacer()
                 }
