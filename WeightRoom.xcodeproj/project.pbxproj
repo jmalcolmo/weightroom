@@ -17,10 +17,12 @@
 		8C53D3D2A7EEDC8E6E4E4A13 /* LoggedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43BED78559A62EC63A6BD /* LoggedSet.swift */; };
 		AEEDCA5FF1E107E841F4019C /* WeightRoom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8190ED72DB64BD3E15209F2 /* WeightRoom.xcdatamodeld */; };
 		B8B249DC4B778D579FD252EE /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E625B920407FF6E4E8254 /* WorkoutSession.swift */; };
+		BF00CCE1D69F942D8BCA9295 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB67E25E35A6E27597B34D8 /* HomeView.swift */; };
 		F9396B280C1627E92115099D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7D4E5D44668D7D19000C228 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0DB67E25E35A6E27597B34D8 /* HomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		11B2A5073B750A7BB664F6A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		14B0273095E737EB617BEB96 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F55F3F436F1AEB4AD6E2018 /* Base.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				14B0273095E737EB617BEB96 /* Info.plist */,
 				3310F35039180D5A8820950C /* Models */,
 				D8190ED72DB64BD3E15209F2 /* WeightRoom.xcdatamodeld */,
+				0DB67E25E35A6E27597B34D8 /* HomeView.swift */,
 			);
 			path = WeightRoom;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				8C53D3D2A7EEDC8E6E4E4A13 /* LoggedSet.swift in Sources */,
 				7ED3B62B6B09D914D11889B1 /* Persistence.swift in Sources */,
 				AEEDCA5FF1E107E841F4019C /* WeightRoom.xcdatamodeld in Sources */,
+				BF00CCE1D69F942D8BCA9295 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
