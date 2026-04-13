@@ -4,7 +4,6 @@ struct PersistenceController {
 
     static let shared = PersistenceController()
 
-    // In-memory store used by SwiftUI Previews — no data written to disk.
     static let preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
         controller.seedExercises()
@@ -28,33 +27,57 @@ struct PersistenceController {
 
     // MARK: - Seed
 
-    /// Inserts the predefined exercise list if the database is empty.
-    /// Safe to call on every launch — checks before inserting.
+    /// The current seed version. Bump this any time the exercise list changes
+    /// so the app wipes and reseeds on next launch.
+    private static let seedVersion = 2
+
+    /// Inserts the predefined exercise list. If the seed version has changed
+    /// since the last launch, all exercises are wiped and reseeded.
     func seedExercises() {
         let context = container.viewContext
-        let request = Exercise.fetchRequest()
-        request.fetchLimit = 1
-        guard (try? context.count(for: request)) == 0 else { return }
+        let defaults = UserDefaults.standard
+        let lastSeedVersion = defaults.integer(forKey: "exerciseSeedVersion")
+
+        if lastSeedVersion != Self.seedVersion {
+            // Wipe existing exercises before reseeding
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: Exercise.fetchRequest())
+            _ = try? context.execute(deleteRequest)
+        } else {
+            // Already on the current version — nothing to do
+            let request = Exercise.fetchRequest()
+            request.fetchLimit = 1
+            guard (try? context.count(for: request)) == 0 else { return }
+        }
 
         let exercises: [(name: String, type: WorkoutType)] = [
             // Push
-            ("Bench Press",      .push),
-            ("Overhead Press",   .push),
-            ("Incline DB Press", .push),
-            ("Tricep Pushdown",  .push),
-            ("Lateral Raise",    .push),
+            ("Bench Press (Flat)",          .push),
+            ("Bench Press (Incline)",        .push),
+            ("Dips",                         .push),
+            ("Shoulder Press",               .push),
+            ("Tricep Extension (Machine)",   .push),
+            ("Tricep Extension (Cable)",     .push),
+            ("Lateral Raise (DB)",           .push),
+            ("Lateral Raise (Machine)",      .push),
+            ("Pec Fly",                      .push),
             // Pull
-            ("Pull-Ups",         .pull),
-            ("Barbell Row",      .pull),
-            ("Cable Row",        .pull),
-            ("Barbell Curl",     .pull),
-            ("Hammer Curl",      .pull),
+            ("Lat Pulldown",                 .pull),
+            ("Pull-Ups",                     .pull),
+            ("Cable Pullover",               .pull),
+            ("Bicep Curl (DB)",              .pull),
+            ("Bicep Curl (Machine)",         .pull),
+            ("Chest Supported Row",          .pull),
+            ("Cable Row",                    .pull),
+            ("Rope Face Pull",               .pull),
+            ("Reverse Pec Deck",             .pull),
+            ("EZ Bar Curl",                  .pull),
             // Legs
-            ("Squat",            .legs),
-            ("Romanian Deadlift",.legs),
-            ("Leg Press",        .legs),
-            ("Leg Curl",         .legs),
-            ("Calf Raise",       .legs),
+            ("Back Squat",                   .legs),
+            ("Hamstring Curl",               .legs),
+            ("Leg Extension",                .legs),
+            ("Hip Abductors",                .legs),
+            ("Calf Raises",                  .legs),
+            ("Bulgarians",                   .legs),
         ]
 
         for entry in exercises {
@@ -65,5 +88,6 @@ struct PersistenceController {
         }
 
         try? context.save()
+        defaults.set(Self.seedVersion, forKey: "exerciseSeedVersion")
     }
 }
