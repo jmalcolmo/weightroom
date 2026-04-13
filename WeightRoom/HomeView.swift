@@ -20,9 +20,12 @@ struct HomeView: View {
             .padding(.horizontal, 24)
             .navigationTitle("Weight Room")
             .navigationDestination(for: ExerciseFilter.self) { filter in
-                // Exercise list — coming next
-                Text("\(filter.displayName) coming soon")
-                    .navigationTitle(filter.displayName)
+                ExerciseListView(filter: filter)
+            }
+            .navigationDestination(for: Exercise.self) { exercise in
+                // Log set sheet — coming next
+                Text("Log sets for \(exercise.name) coming soon")
+                    .navigationTitle(exercise.name)
             }
         }
     }

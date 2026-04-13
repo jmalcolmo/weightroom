@@ -16,6 +16,7 @@
 		7ED3B62B6B09D914D11889B1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A721ECD0938546C5410A36 /* Persistence.swift */; };
 		89FF2F95D927D0CE99269DFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B2A5073B750A7BB664F6A6 /* Preview Assets.xcassets */; };
 		8C53D3D2A7EEDC8E6E4E4A13 /* LoggedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43BED78559A62EC63A6BD /* LoggedSet.swift */; };
+		907596F243F70463AF41E90C /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24917749521462630F3269 /* ExerciseListView.swift */; };
 		AEEDCA5FF1E107E841F4019C /* WeightRoom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8190ED72DB64BD3E15209F2 /* WeightRoom.xcdatamodeld */; };
 		B8B249DC4B778D579FD252EE /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E625B920407FF6E4E8254 /* WorkoutSession.swift */; };
 		BF00CCE1D69F942D8BCA9295 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB67E25E35A6E27597B34D8 /* HomeView.swift */; };
@@ -33,6 +34,7 @@
 		816BADDB861668F68DAB7EC3 /* Exercise.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		84D2058059FBD84DB25D436C /* WeightRoom.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = WeightRoom.xcdatamodel; sourceTree = "<group>"; };
 		937E625B920407FF6E4E8254 /* WorkoutSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
+		9E24917749521462630F3269 /* ExerciseListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		9F69C30C4251AE5A30F02C78 /* Prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
 		BDA34E40F635EC690C55EBDF /* WeightRoom Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeightRoom Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21AA633E79FE5C92595AE50 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				3310F35039180D5A8820950C /* Models */,
 				D8190ED72DB64BD3E15209F2 /* WeightRoom.xcdatamodeld */,
 				0DB67E25E35A6E27597B34D8 /* HomeView.swift */,
+				9E24917749521462630F3269 /* ExerciseListView.swift */,
 			);
 			path = WeightRoom;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				AEEDCA5FF1E107E841F4019C /* WeightRoom.xcdatamodeld in Sources */,
 				BF00CCE1D69F942D8BCA9295 /* HomeView.swift in Sources */,
 				0AF3CD5A5D766D015A18503C /* ExerciseFilter.swift in Sources */,
+				907596F243F70463AF41E90C /* ExerciseListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
