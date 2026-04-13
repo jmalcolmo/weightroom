@@ -12,22 +12,30 @@
 		1CFA1DD961570ECE2A3F2CD2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21AA633E79FE5C92595AE50 /* ContentView.swift */; };
 		3C6712E00B8B966B9BEDEE2D /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 816BADDB861668F68DAB7EC3 /* Exercise.swift */; };
 		53C4FA25A4EA48B1EEA0EB15 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BB21D9FF33AE9DCDAE30BD5 /* Foundation.framework */; };
+		5AA84B8FE36B75EB67059885 /* ExerciseRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA7A77BCF123360EAF4B05 /* ExerciseRowView.swift */; };
 		64911DF32CE2FE0A54C5E8E7 /* WeightRoomApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D577EFF3835D67F2EF13EC4D /* WeightRoomApp.swift */; };
 		7ED3B62B6B09D914D11889B1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A721ECD0938546C5410A36 /* Persistence.swift */; };
 		89FF2F95D927D0CE99269DFB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B2A5073B750A7BB664F6A6 /* Preview Assets.xcassets */; };
 		8C53D3D2A7EEDC8E6E4E4A13 /* LoggedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B43BED78559A62EC63A6BD /* LoggedSet.swift */; };
 		907596F243F70463AF41E90C /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E24917749521462630F3269 /* ExerciseListView.swift */; };
+		9B8EF906F449AC7FBA300DE0 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32020EF20DF5ABFBCF2685F3 /* SessionManager.swift */; };
 		AEEDCA5FF1E107E841F4019C /* WeightRoom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D8190ED72DB64BD3E15209F2 /* WeightRoom.xcdatamodeld */; };
+		B0075C0C099677C268ECC29F /* SwipeableNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF23BBCCDD2920CDE0D96945 /* SwipeableNumber.swift */; };
 		B8B249DC4B778D579FD252EE /* WorkoutSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 937E625B920407FF6E4E8254 /* WorkoutSession.swift */; };
 		BF00CCE1D69F942D8BCA9295 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB67E25E35A6E27597B34D8 /* HomeView.swift */; };
+		D1448F12C04DAB74CAF2596E /* WorkoutSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E1D3D56FB94DC10F1DEF27 /* WorkoutSessionView.swift */; };
+		EA80AEDA5ACBD5376BC22A78 /* WorkoutCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DF796851FFB30F80AB457A /* WorkoutCartView.swift */; };
 		F9396B280C1627E92115099D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7D4E5D44668D7D19000C228 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08E1D3D56FB94DC10F1DEF27 /* WorkoutSessionView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WorkoutSessionView.swift; sourceTree = "<group>"; };
 		0DB67E25E35A6E27597B34D8 /* HomeView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		11B2A5073B750A7BB664F6A6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		14B0273095E737EB617BEB96 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		22CA7A77BCF123360EAF4B05 /* ExerciseRowView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExerciseRowView.swift; sourceTree = "<group>"; };
 		2F55F3F436F1AEB4AD6E2018 /* Base.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Base.xcconfig; sourceTree = "<group>"; };
+		32020EF20DF5ABFBCF2685F3 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 		3E83AC459E8FECAFE15AD165 /* Dev.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 		4BB21D9FF33AE9DCDAE30BD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		796CBB5667DD96289F6628E2 /* WorkoutType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WorkoutType.swift; sourceTree = "<group>"; };
@@ -36,9 +44,11 @@
 		937E625B920407FF6E4E8254 /* WorkoutSession.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WorkoutSession.swift; sourceTree = "<group>"; };
 		9E24917749521462630F3269 /* ExerciseListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		9F69C30C4251AE5A30F02C78 /* Prod.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Prod.xcconfig; sourceTree = "<group>"; };
+		B1DF796851FFB30F80AB457A /* WorkoutCartView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WorkoutCartView.swift; sourceTree = "<group>"; };
 		BDA34E40F635EC690C55EBDF /* WeightRoom Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeightRoom Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C21AA633E79FE5C92595AE50 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C2A721ECD0938546C5410A36 /* Persistence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		CF23BBCCDD2920CDE0D96945 /* SwipeableNumber.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SwipeableNumber.swift; sourceTree = "<group>"; };
 		D0B43BED78559A62EC63A6BD /* LoggedSet.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoggedSet.swift; sourceTree = "<group>"; };
 		D577EFF3835D67F2EF13EC4D /* WeightRoomApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = WeightRoomApp.swift; sourceTree = "<group>"; };
 		D7D4E5D44668D7D19000C228 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +87,10 @@
 				D8190ED72DB64BD3E15209F2 /* WeightRoom.xcdatamodeld */,
 				0DB67E25E35A6E27597B34D8 /* HomeView.swift */,
 				9E24917749521462630F3269 /* ExerciseListView.swift */,
+				CF23BBCCDD2920CDE0D96945 /* SwipeableNumber.swift */,
+				22CA7A77BCF123360EAF4B05 /* ExerciseRowView.swift */,
+				B1DF796851FFB30F80AB457A /* WorkoutCartView.swift */,
+				08E1D3D56FB94DC10F1DEF27 /* WorkoutSessionView.swift */,
 			);
 			path = WeightRoom;
 			sourceTree = "<group>";
@@ -90,6 +104,7 @@
 				D0B43BED78559A62EC63A6BD /* LoggedSet.swift */,
 				C2A721ECD0938546C5410A36 /* Persistence.swift */,
 				E7C003149213594B93314038 /* ExerciseFilter.swift */,
+				32020EF20DF5ABFBCF2685F3 /* SessionManager.swift */,
 			);
 			name = Models;
 			path = Models;
@@ -228,6 +243,11 @@
 				BF00CCE1D69F942D8BCA9295 /* HomeView.swift in Sources */,
 				0AF3CD5A5D766D015A18503C /* ExerciseFilter.swift in Sources */,
 				907596F243F70463AF41E90C /* ExerciseListView.swift in Sources */,
+				B0075C0C099677C268ECC29F /* SwipeableNumber.swift in Sources */,
+				5AA84B8FE36B75EB67059885 /* ExerciseRowView.swift in Sources */,
+				EA80AEDA5ACBD5376BC22A78 /* WorkoutCartView.swift in Sources */,
+				D1448F12C04DAB74CAF2596E /* WorkoutSessionView.swift in Sources */,
+				9B8EF906F449AC7FBA300DE0 /* SessionManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

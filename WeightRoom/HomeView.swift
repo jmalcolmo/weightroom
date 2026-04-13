@@ -1,39 +1,36 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var sessionManager: SessionManager
+
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 16) {
-                ForEach(WorkoutType.allCases, id: \.self) { type in
-                    NavigationLink(value: ExerciseFilter.byType(type)) {
-                        WorkoutButton(label: type.displayName, style: .primary)
-                    }
-                }
-
-                Divider()
-                    .padding(.vertical, 4)
-
-                NavigationLink(value: ExerciseFilter.all) {
-                    WorkoutButton(label: "All Exercises", style: .secondary)
+        VStack(spacing: 16) {
+            ForEach(WorkoutType.allCases, id: \.self) { type in
+                Button {
+                    sessionManager.startSession(type: type)
+                } label: {
+                    WorkoutButton(label: type.displayName, style: .primary)
                 }
             }
-            .padding(.horizontal, 24)
-            .navigationTitle("Weight Room")
-            .navigationDestination(for: ExerciseFilter.self) { filter in
-                ExerciseListView(filter: filter)
+
+            Divider()
+                .padding(.vertical, 4)
+
+            NavigationLink(value: ExerciseFilter.all) {
+                WorkoutButton(label: "All Exercises", style: .secondary)
             }
-            .navigationDestination(for: Exercise.self) { exercise in
-                // Log set sheet — coming next
-                Text("Log sets for \(exercise.name) coming soon")
-                    .navigationTitle(exercise.name)
-            }
+        }
+        .padding(.horizontal, 24)
+        .navigationTitle("Weight Room")
+        .navigationDestination(for: ExerciseFilter.self) { filter in
+            ExerciseListView(filter: filter)
         }
     }
 }
 
 // MARK: - Subviews
 
-private struct WorkoutButton: View {
+struct WorkoutButton: View {
     enum Style { case primary, secondary }
 
     let label: String
@@ -53,6 +50,8 @@ private struct WorkoutButton: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        NavigationStack {
+            HomeView()
+        }
     }
 }
