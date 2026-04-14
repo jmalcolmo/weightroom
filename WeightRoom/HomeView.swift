@@ -25,6 +25,38 @@ struct HomeView: View {
         .navigationDestination(for: ExerciseFilter.self) { filter in
             ExerciseListView(filter: filter)
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Menu {
+                    Button {
+                        // TODO: Open settings
+                    } label: {
+                        Label("Settings", systemImage: "gearshape")
+                    }
+
+                    Button {
+                        // TODO: Create exercise
+                    } label: {
+                        Label("Create Exercise", systemImage: "dumbbell")
+                    }
+
+                    Button {
+                        // TODO: Create workout
+                    } label: {
+                        Label("Create Workout", systemImage: "plus.circle")
+                    }
+
+                    Button {
+                        // TODO: View workouts
+                    } label: {
+                        Label("View Workouts", systemImage: "list.bullet")
+                    }
+                } label: {
+                    Image(systemName: "gearshape.fill")
+                        .font(.title3)
+                }
+            }
+        }
     }
 }
 
