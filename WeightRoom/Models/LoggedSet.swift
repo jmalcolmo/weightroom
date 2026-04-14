@@ -1,7 +1,7 @@
 import CoreData
 
 @objc(LoggedSet)
-public class LoggedSet: NSManagedObject {
+public class LoggedSet: NSManagedObject, Identifiable {
     @NSManaged public var id: UUID
     @NSManaged public var weight: Double
     @NSManaged public var reps: Int16
