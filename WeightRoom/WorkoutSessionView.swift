@@ -48,6 +48,17 @@ struct WorkoutSessionView: View {
         .navigationTitle(sessionManager.activeSession?.workoutCategory.displayName ?? "Workout")
         .navigationBarBackButtonHidden(true)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    sessionManager.finishSession()
+                } label: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chevron.left")
+                            .fontWeight(.semibold)
+                        Text("Home")
+                    }
+                }
+            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Finish Workout") {
                     sessionManager.finishSession()

@@ -1,7 +1,7 @@
 import CoreData
 
 @objc(WorkoutSession)
-public class WorkoutSession: NSManagedObject {
+public class WorkoutSession: NSManagedObject, Identifiable {
     @NSManaged public var id: UUID
     @NSManaged public var date: Date
     @NSManaged public var workoutType: String
