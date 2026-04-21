@@ -5,12 +5,10 @@ struct ContentView: View {
 
     var body: some View {
         if let type = sessionManager.activeSession?.workoutCategory {
-            // Active session — land directly on the workout screen, no back button.
             NavigationStack {
                 WorkoutSessionView(workoutType: type)
             }
         } else {
-            // No active session — show home.
             NavigationStack {
                 HomeView()
             }
