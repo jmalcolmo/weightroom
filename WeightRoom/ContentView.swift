@@ -2,17 +2,25 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var sessionManager: SessionManager
+    @State private var navPath: [WorkoutType] = []
 
     var body: some View {
-        if let type = sessionManager.activeSession?.workoutCategory {
-            // Active session — land directly on the workout screen, no back button.
-            NavigationStack {
+        NavigationStack(path: $navPath) {
+            HomeView(navigateTo: { type in
+                navPath = [type]
+            })
+            .navigationDestination(for: WorkoutType.self) { type in
                 WorkoutSessionView(workoutType: type)
             }
-        } else {
-            // No active session — show home.
-            NavigationStack {
-                HomeView()
+        }
+        .onAppear {
+            if let session = sessionManager.activeSession {
+                navPath = [session.workoutCategory]
+            }
+        }
+        .onChange(of: sessionManager.activeSession) { session in
+            if session == nil {
+                navPath = []
             }
         }
     }

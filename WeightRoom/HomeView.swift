@@ -2,12 +2,32 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var sessionManager: SessionManager
+    let navigateTo: (WorkoutType) -> Void
 
     var body: some View {
         VStack(spacing: 16) {
+            if let session = sessionManager.activeSession {
+                Button {
+                    navigateTo(session.workoutCategory)
+                } label: {
+                    HStack {
+                        Image(systemName: "figure.strengthtraining.traditional")
+                        Text("\(session.workoutCategory.displayName) Workout In Progress")
+                            .fontWeight(.semibold)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                    }
+                    .padding()
+                    .background(Color.accentColor.opacity(0.15))
+                    .foregroundColor(.accentColor)
+                    .cornerRadius(12)
+                }
+            }
+
             ForEach(WorkoutType.allCases, id: \.self) { type in
                 Button {
                     sessionManager.startSession(type: type)
+                    navigateTo(type)
                 } label: {
                     WorkoutButton(label: type.displayName, style: .primary)
                 }
@@ -83,7 +103,8 @@ struct WorkoutButton: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            HomeView()
+            HomeView(navigateTo: { _ in })
         }
+        .environmentObject(SessionManager(context: PersistenceController.preview.container.viewContext))
     }
 }

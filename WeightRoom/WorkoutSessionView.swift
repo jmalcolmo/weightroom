@@ -46,7 +46,6 @@ struct WorkoutSessionView: View {
             }
         }
         .navigationTitle(sessionManager.activeSession?.workoutCategory.displayName ?? "Workout")
-        .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Finish Workout") {
