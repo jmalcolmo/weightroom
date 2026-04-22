@@ -2,5 +2,5 @@
 // Shared settings inherited by all environments.
 
 SWIFT_VERSION = 5.0
-IPHONEOS_DEPLOYMENT_TARGET = 17.0
+IPHONEOS_DEPLOYMENT_TARGET = 16.2
 TARGETED_DEVICE_FAMILY = 1
