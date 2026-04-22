@@ -130,10 +130,9 @@ struct WorkoutCartView: View {
                                             .buttonStyle(.plain)
 
                                             Button("Delete") {
+                                                expandedSetID = nil
+                                                editingSetID = nil
                                                 sessionManager.deleteSet(set)
-                                                withAnimation(.easeInOut(duration: 0.2)) {
-                                                    expandedSetID = nil
-                                                }
                                             }
                                             .fontWeight(.semibold)
                                             .padding(.horizontal, 24)
