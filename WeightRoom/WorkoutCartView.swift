@@ -13,8 +13,7 @@ struct WorkoutCartView: View {
     init(session: WorkoutSession) {
         _sets = FetchRequest(
             sortDescriptors: [NSSortDescriptor(keyPath: \LoggedSet.timestamp, ascending: true)],
-            predicate: NSPredicate(format: "session == %@", session),
-            animation: .default
+            predicate: NSPredicate(format: "session == %@", session)
         )
     }
 
