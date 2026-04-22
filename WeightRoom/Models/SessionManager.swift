@@ -70,6 +70,17 @@ class SessionManager: ObservableObject {
         return try? context.fetch(request).first
     }
 
+    func deleteSet(_ set: LoggedSet) {
+        context.delete(set)
+        save()
+    }
+
+    func updateSet(_ set: LoggedSet, weight: Int, reps: Int) {
+        set.weight = Double(weight)
+        set.reps = Int16(reps)
+        save()
+    }
+
     // MARK: - Private
 
     private func save() {

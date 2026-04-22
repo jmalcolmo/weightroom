@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var sessionManager: SessionManager
+    @State private var navPath: [WorkoutType] = []
 
     var body: some View {
         if let type = sessionManager.activeSession?.workoutCategory {
