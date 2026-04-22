@@ -7,6 +7,7 @@ struct PersistenceController {
     static let preview: PersistenceController = {
         let controller = PersistenceController(inMemory: true)
         controller.seedExercises()
+        controller.seedPreviewSessions()
         return controller
     }()
 
@@ -89,5 +90,71 @@ struct PersistenceController {
 
         try? context.save()
         defaults.set(Self.seedVersion, forKey: "exerciseSeedVersion")
+    }
+
+    /// Seeds realistic dummy workout sessions for SwiftUI previews only.
+    /// Looks up named exercises that were already inserted by seedExercises().
+    func seedPreviewSessions() {
+        let context = container.viewContext
+
+        func exercise(named name: String) -> Exercise? {
+            let req = Exercise.fetchRequest()
+            req.predicate = NSPredicate(format: "name == %@", name)
+            req.fetchLimit = 1
+            return try? context.fetch(req).first
+        }
+
+        func makeSession(type: WorkoutType, daysAgo: Int) -> WorkoutSession {
+            let session = WorkoutSession(context: context)
+            session.id = UUID()
+            session.date = Calendar.current.date(byAdding: .day, value: -daysAgo, to: Date()) ?? Date()
+            session.workoutType = type.rawValue
+            return session
+        }
+
+        func addSet(to session: WorkoutSession, exercise: Exercise?, weight: Double, reps: Int, secondsAgo: Int) {
+            guard let exercise else { return }
+            let set = LoggedSet(context: context)
+            set.id = UUID()
+            set.weight = weight
+            set.reps = Int16(reps)
+            set.timestamp = Date().addingTimeInterval(TimeInterval(-secondsAgo))
+            set.exercise = exercise
+            set.session = session
+        }
+
+        // ── Pull Day — 7 days ago ─────────────────────────────────────────
+        let pull = makeSession(type: .pull, daysAgo: 7)
+        let bench = exercise(named: "Bench Press (Flat)")
+        addSet(to: pull, exercise: bench, weight: 200, reps: 4, secondsAgo: 3600)
+        addSet(to: pull, exercise: bench, weight: 225, reps: 2, secondsAgo: 3300)
+        addSet(to: pull, exercise: bench, weight: 185, reps: 1, secondsAgo: 3000)
+        let dips = exercise(named: "Dips")
+        addSet(to: pull, exercise: dips, weight: 205, reps: 12, secondsAgo: 2700)
+        addSet(to: pull, exercise: dips, weight: 205, reps: 10, secondsAgo: 2400)
+        addSet(to: pull, exercise: dips, weight: 205, reps: 8,  secondsAgo: 2100)
+
+        // ── Push Day — 4 days ago ─────────────────────────────────────────
+        let push = makeSession(type: .push, daysAgo: 4)
+        let latPulldown = exercise(named: "Lat Pulldown")
+        addSet(to: push, exercise: latPulldown, weight: 150, reps: 10, secondsAgo: 3600)
+        addSet(to: push, exercise: latPulldown, weight: 160, reps: 8,  secondsAgo: 3300)
+        addSet(to: push, exercise: latPulldown, weight: 160, reps: 7,  secondsAgo: 3000)
+        let row = exercise(named: "Cable Row")
+        addSet(to: push, exercise: row, weight: 120, reps: 12, secondsAgo: 2700)
+        addSet(to: push, exercise: row, weight: 130, reps: 10, secondsAgo: 2400)
+
+        // ── Leg Day — 2 days ago ──────────────────────────────────────────
+        let legs = makeSession(type: .legs, daysAgo: 2)
+        let squat = exercise(named: "Back Squat")
+        addSet(to: legs, exercise: squat, weight: 225, reps: 5,  secondsAgo: 3600)
+        addSet(to: legs, exercise: squat, weight: 245, reps: 3,  secondsAgo: 3300)
+        addSet(to: legs, exercise: squat, weight: 265, reps: 1,  secondsAgo: 3000)
+        let curl = exercise(named: "Hamstring Curl")
+        addSet(to: legs, exercise: curl, weight: 90,  reps: 12, secondsAgo: 2700)
+        addSet(to: legs, exercise: curl, weight: 95,  reps: 10, secondsAgo: 2400)
+        addSet(to: legs, exercise: curl, weight: 95,  reps: 8,  secondsAgo: 2100)
+
+        try? context.save()
     }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var sessionManager: SessionManager
-    let navigateTo: (WorkoutType) -> Void
+    @State private var showingHistory = false
 
     var body: some View {
         VStack(spacing: 16) {
@@ -45,6 +45,11 @@ struct HomeView: View {
         .navigationDestination(for: ExerciseFilter.self) { filter in
             ExerciseListView(filter: filter)
         }
+        .sheet(isPresented: $showingHistory) {
+            NavigationStack {
+                WorkoutHistoryView()
+            }
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
@@ -67,7 +72,7 @@ struct HomeView: View {
                     }
 
                     Button {
-                        // TODO: View workouts
+                        showingHistory = true
                     } label: {
                         Label("View Workouts", systemImage: "list.bullet")
                     }
