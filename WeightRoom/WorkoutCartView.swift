@@ -42,7 +42,7 @@ struct WorkoutCartView: View {
             } else {
                 ScrollView {
                     LazyVStack(alignment: .leading, spacing: 0) {
-                        ForEach(sets) { set in
+                        ForEach(sets, id: \.objectID) { set in
                             VStack(alignment: .leading, spacing: 0) {
                                 // Main row
                                 HStack {
